@@ -1,4 +1,4 @@
 # Felipe Cofré — Portfolio
 
-Portfolio personal de Front-End Developer.
+Portafolio personal de Front-End Developer.
 
