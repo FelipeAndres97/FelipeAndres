@@ -17,14 +17,7 @@ if (reduceMotion) {
   revealItems.forEach(item => observer.observe(item));
 }
 
-const progress = document.querySelector(".progreso-scroll");
-const updateProgress = () => {
-  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-  const value = scrollable > 0 ? window.scrollY / scrollable : 0;
-  progress.style.transform = `scaleX(${value})`;
-};
-window.addEventListener("scroll", updateProgress, { passive: true });
-updateProgress();
+
 
 const cursorGlow = document.querySelector(".brillo-raton");
 if (cursorGlow && !reduceMotion && window.matchMedia("(pointer:fine)").matches) {
