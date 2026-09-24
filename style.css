@@ -549,7 +549,7 @@ h2 {
 
 
 .proyecto-destacado {
-    display: grid;
+    /* display: grid; */
     grid-template-columns: 1.35fr .65fr;
     gap: 40px;
     align-items: center;
@@ -829,16 +829,16 @@ h2 {
 
 
 footer {
-    max-width: var(--max);
     margin: auto;
     padding: 30px 24px;
-    display: flex;
+    display: block;
     justify-content: space-between;
     gap: 15px;
     border-top: 1px solid var(--line);
     font-size: 11px;
     color: var(--muted);
     background: rgba(2, 8, 13, .38);
+    text-align-last: center;    
 }
 
 
@@ -1231,7 +1231,9 @@ footer {
     }
 }
 
-
+html {
+  scroll-behavior: smooth;
+}
 
 @media (prefers-reduced-motion: reduce) {
 

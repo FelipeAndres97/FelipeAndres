@@ -17,7 +17,38 @@ if (reduceMotion) {
   revealItems.forEach(item => observer.observe(item));
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
 
+      const target = document.querySelector(this.getAttribute("href"));
+
+      if (target) {
+        const start = window.scrollY;
+        const end = target.getBoundingClientRect().top + window.scrollY;
+        const duration = 1000; 
+        const startTime = performance.now();
+
+        function scrollAnimation(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+
+          // Suaviza el movimiento al inicio y al final
+          const ease = 1 - Math.pow(1 - progress, 5);
+
+          window.scrollTo(0, start + (end - start) * ease);
+
+          if (progress < 1) {
+            requestAnimationFrame(scrollAnimation);
+          }
+        }
+
+        requestAnimationFrame(scrollAnimation);
+      }
+    });
+  });
+});
 
 const cursorGlow = document.querySelector(".brillo-raton");
 if (cursorGlow && !reduceMotion && window.matchMedia("(pointer:fine)").matches) {
